@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato - Food Delivery</title>
+    <meta name="description" content="Delicious food delivery service with fresh ingredients and fast delivery">
+    <link rel="stylesheet" href="Tomato.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="Tomato.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Tomato</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#" id="login-btn">Log In</a></li>
+                <li><a href="#" id="register-btn">Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <!-- Icons Section -->
+        <div class="actions">
+            <!-- Search Icon -->
+            <div id="search-container" class="hidden">
+                <input type="text" id="search-input" placeholder="Search menu items...">
+                <button id="search-btn">Search</button>
+            </div>
+            <a href="#" id="search-toggle" aria-label="Search menu"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+            <!-- Cart Icon -->
+            <a href="#" id="cart-icon" aria-label="Shopping cart" style="position: relative;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" style="display: none; position: absolute; top: -8px; right: -8px; background: var(--primary-color); color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.8rem; font-weight: bold;">0</span>
+            </a>
+            <div id="cart-modal" class="hidden">
+                <h2>Cart Items</h2>
+                <ul id="cart-items"></ul>
+                <p id="empty-cart-message" class="hidden">Your cart is empty.</p>
+                <button id="close-cart">Close</button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Home Section -->
+    <section id="home" class="menu-section">
+        <h2>Our Food Categories</h2>
+        <p>Choose from a diverse menu featuring a delectable array of dishes.</p>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="images/t3.jpeg" alt="Fresh Salad Category">
+                <p>Salad</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t4.jpeg" alt="Delicious Rolls Category">
+                <p>Rolls</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t5.jpeg" alt="Sweet Desserts Category">
+                <p>Desserts</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t6.jpeg" alt="Tasty Sandwich Category">
+                <p>Sandwich</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t7.jpeg" alt="Delicious Cake Category">
+                <p>Cake</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t8.jpeg" alt="Pure Vegetarian Category">
+                <p>Pure Veg</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t9.jpeg" alt="Italian Pasta Category">
+                <p>Pasta</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t10.jpeg" alt="Asian Noodles Category">
+                <p>Noodles</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t11.jpeg" alt="Grilled Chicken Category">
+                <p>Chicken</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t12.jpeg" alt="Italian Pizza Category">
+                <p>Pizza</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t13.jpeg" alt="Juicy Burger Category">
+                <p>Burger</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t14.jpeg" alt="Fresh Sushi Category">
+                <p>Sushi</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t15.jpeg" alt="Grilled Steak Category">
+                <p>Steak</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t16.jpeg" alt="Seafood Category">
+                <p>Seafood</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t17.jpeg" alt="Mexican Tacos Category">
+                <p>Tacos</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/t18.jpeg" alt="Healthy Smoothies Category">
+                <p>Smoothies</p>
+            </div>
+        </div>
+    </section> 
+
+
+    <!-- Featured Items Table -->
+    <section class="featured-section">
+        <div class="menu-container">
+            <h2>Featured Items</h2>
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="images/t19.jpeg" alt="Garlic Mushroom dish"></td>
+                        <td>Garlic Mushroom</td>
+                        <td class="menu-category">Pure Veg</td>
+                        <td>$5</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/t20.jpeg" alt="Fried Cauliflower dish"></td>
+                        <td>Fried Cauliflower</td>
+                        <td class="menu-category">Pure Veg</td>
+                        <td>$12</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/t21.jpeg" alt="Veg Platter dish"></td>
+                        <td>Veg Platter</td>
+                        <td class="menu-category">Pure Veg</td>
+                        <td>$8</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/t22.jpeg" alt="Rice Zucchini dish"></td>
+                        <td>Rice Zucchini</td>
+                        <td class="menu-category">Pure Veg</td>
+                        <td>$9</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/t23.jpeg" alt="Cheese Pasta dish"></td>
+                        <td>Cheese Pasta</td>
+                        <td class="menu-category">Pasta</td>
+                        <td>$10</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/t24.jpeg" alt="Tomato Pasta dish"></td>
+                        <td>Tomato Pasta</td>
+                        <td class="menu-category">Pasta</td>
+                        <td>$8</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="dishes-section">
+        <h2>Explore our Menu</h2>
+        <div class="dish-grid">
+<div class="dish-item">
+<img src="images/t25.jpeg" alt="Dish 1">
+<div class="dish-info">
+<h3>Greek Salad</h3>
+<p>A refreshing blend of greens and zesty flavors.</p>
+<div class="price-rating">
+<span class="price">$12</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t26.jpeg" alt="Dish 2">
+<div class="dish-info">
+<h3>Pasta Delight</h3>
+<p>Rich and creamy pasta with a burst of Italian spices.</p>
+<div class="price-rating">
+<span class="price">$15</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t27.jpeg" alt="Dish 3">
+<div class="dish-info">
+<h3>Grilled Chicken</h3>
+<p>Perfectly grilled, tender and full of flavor.</p>
+<div class="price-rating">
+<span class="price">$18</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t28.jpeg" alt="Dish 4">
+<div class="dish-info">
+<h3>Classic Burger</h3>
+<p>Juicy beef patty with fresh lettuce and tomatoes.</p>
+<div class="price-rating">
+<span class="price">$10</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t29.jpeg" alt="Dish 5">
+<div class="dish-info">
+<h3>Sushi Platter</h3>
+<p>An assortment of fresh sushi and sashimi.</p>
+<div class="price-rating">
+<span class="price">$20</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t30.jpeg" alt="Dish 6">
+<div class="dish-info">
+<h3>Cheesy Pizza</h3>
+<p>Loaded with cheese and a touch of oregano.</p>
+<div class="price-rating">
+<span class="price">$14</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t31.jpeg" alt="Dish 7">
+<div class="dish-info">
+<h3>Vegetable Stir Fry</h3>
+<p>Colorful veggies in a savory sauce.</p>
+<div class="price-rating">
+<span class="price">$11</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t32.jpeg" alt="Dish 8">
+<div class="dish-info">
+<h3>BBQ Ribs</h3>
+<p>Slow-cooked ribs with a tangy BBQ glaze.</p>
+<div class="price-rating">
+<span class="price">$22</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t33.jpeg" alt="Dish 9">
+<div class="dish-info">
+<h3>Avocado Toast</h3>
+<p>Fresh avocado spread on crispy sourdough.</p>
+<div class="price-rating">
+<span class="price">$8</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t34.jpeg" alt="Dish 10">
+<div class="dish-info">
+<h3>Seafood Paella</h3>
+<p>A mix of shrimp, mussels, and rice infused with saffron.</p>
+<div class="price-rating">
+<span class="price">$25</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t35.jpeg" alt="Dish 11">
+<div class="dish-info">
+<h3>Vegetarian Burrito</h3>
+<p>A hearty burrito filled with beans, veggies, and avocado.</p>
+<div class="price-rating">
+<span class="price">$13</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t36.jpeg" alt="Dish 12">
+<div class="dish-info">
+<h3>Beef Tacos</h3>
+<p>Soft tortillas filled with seasoned beef and toppings.</p>
+<div class="price-rating">
+<span class="price">$9</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t37.jpeg" alt="Dish 13">
+<div class="dish-info">
+<h3>Eggplant Parmesan</h3>
+<p>Fried eggplant topped with marinara sauce and mozzarella.</p>
+<div class="price-rating">
+<span class="price">$16</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t38.jpeg" alt="Dish 14">
+<div class="dish-info">
+<h3>Lamb Chops</h3>
+<p>Succulent lamb chops grilled to perfection.</p>
+<div class="price-rating">
+<span class="price">$28</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t39.jpeg" alt="Dish 15">
+<div class="dish-info">
+<h3>Falafel Plate</h3>
+<p>Crispy falafel served with hummus and pita bread.</p>
+<div class="price-rating">
+<span class="price">$12</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t40.jpeg" alt="Dish 16">
+<div class="dish-info">
+<h3>Chicken Shawarma</h3>
+<p>Juicy chicken wrapped in pita with garlic sauce.</p>
+<div class="price-rating">
+<span class="price">$14</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t41.jpeg" alt="Dish 17">
+<div class="dish-info">
+<h3>Margherita Pizza</h3>
+<p>Simple yet delicious with fresh mozzarella and basil.</p>
+<div class="price-rating">
+<span class="price">$13</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t42.jpeg" alt="Dish 18">
+<div class="dish-info">
+<h3>Chocolate Lava Cake</h3>
+<p>A warm, gooey chocolate cake served with vanilla ice cream.</p>
+<div class="price-rating">
+<span class="price">$8</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t43.jpeg" alt="Dish 19">
+<div class="dish-info">
+<h3>pesto sandwitch</h3>
+<p>A refreshing blend of greens and zesty flavors.</p>
+<div class="price-rating">
+<span class="price">$12</span>
+<span class="stars">⭐⭐⭐⭐☆</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t44.jpeg" alt="Dish 20">
+<div class="dish-info">
+<h3>pepparoni pizza</h3>
+<p>Rich and creamy pasta with a burst of Italian spices.</p>
+<div class="price-rating">
+<span class="price">$15</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+             
+<div class="dish-item">
+<img src="images/t45.jpeg" alt="Dish 21">
+<div class="dish-info">
+<h3>Lobster Bisque</h3>
+<p>Rich and creamy soup with lobster meat and aromatic herbs.</p>
+<div class="price-rating">
+<span class="price">$22</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+
+<div class="dish-item">
+<img src="images/t46.jpeg" alt="Dish 22">
+<div class="dish-info">
+<h3>Fried Tempura</h3>
+<p>Deliciously crispy tempura made with a variety of fresh vegetables and shrimp, served with a special dipping sauce.</p>
+<div class="price-rating">
+<span class="price">$10</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="dish-item">
+<img src="images/t47.jpeg" alt="Dish 23">
+<div class="dish-info">
+<h3>Ramen</h3>
+<p>A savory bowl of ramen with tender noodles, rich broth, and your choice of toppings like boiled egg, pork, and vegetables.</p>
+<div class="price-rating">
+<span class="price">$12</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+ </div>
+ <div class="dish-item">
+<img src="images/t48.jpeg" alt="Dish 24">
+<div class="dish-info">
+<h3>Yakimeshi</h3>
+<p>Fluffy, stir-fried rice with a medley of vegetables, meat, and soy sauce, served with a side of pickled ginger.</p>
+<div class="price-rating">
+<span class="price">$9</span>
+<span class="stars">⭐⭐⭐⭐⭐</span>
+</div>
+<div class="cart-controls">
+<div class="quantity-controls">
+<button class="minus">-</button>
+<input type="number" class="quantity" value="1" min="1">
+<button class="plus">+</button>
+</div>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+</div>
+ </div>
+</div>
+</section>
+
+
+    <!-- Cart/Checkout Section -->
+    <section id="cart" class="cart-section">
+        <div class="cart-container">
+            <h2>Your Cart</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-table-body">
+                    <!-- Cart items will be populated by JavaScript -->
+                    <tr id="empty-cart-row">
+                        <td colspan="6" style="text-align: center; padding: 2rem;">Your cart is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Promo code section -->
+            <div class="cart-summary">
+                <div class="promo-code">
+                    <p>If you have a promo code, enter it here:</p>
+                    <input type="text" id="promo-code-input" placeholder="Promo code">
+                    <input type="submit" id="promo-submit" value="Submit">
+                </div>
+                <div class="cart-totals">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td id="subtotal-amount" style="text-align: right;">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Delivery Fee</td>
+                                <td style="text-align: right;">$5.00</td>
+                            </tr>
+                            <tr id="discount-row" style="display: none;">
+                                <td>Discount</td>
+                                <td id="discount-amount" style="text-align: right; color: green;">-$0.00</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td>Total</td>
+                                <td id="total-amount" style="text-align: right; font-weight: bold;">$5.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Checkout Button -->
+                <button class="checkout-btn" id="proceed-checkout">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section -->
+    <section id="checkout" class="checkout-section">
+        <div class="checkout-container">
+            <!-- Delivery Information Section -->
+            <div class="delivery-info">
+                <h2>Delivery Information</h2>
+                <form id="delivery-form">
+                    <div class="form-row">
+                        <input type="text" id="first-name" placeholder="First name" required>
+                        <input type="text" id="last-name" placeholder="Last name" required>
+                    </div>
+                    <input type="email" id="delivery-email" placeholder="Email address" required>
+                    <input type="text" id="street" placeholder="Street address" required>
+                    <div class="form-row">
+                        <input type="text" id="city" placeholder="City" required>
+                        <input type="text" id="state" placeholder="State" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="zip-code" placeholder="Zip code" required>
+                        <input type="text" id="delivery-country" placeholder="Country" required>
+                    </div>
+                    <input type="tel" id="phone" placeholder="Phone number" required>
+                </form>
+            </div>
+
+            <div class="payment-container">
+                <!-- Payment Summary -->
+                <div class="payment-summary">
+                    <h2>Payment Summary</h2>
+                    <div class="order-total" id="checkout-total">$0.00</div>
+                    <ul class="item-list" id="checkout-items">
+                        <!-- Items will be populated by JavaScript -->
+                    </ul>
+                </div>
+
+                <!-- Payment Form -->
+                <div class="payment-form">
+                    <h2>Pay with Card</h2>
+                    <form id="payment-form">
+                        <label for="payment-email">Email</label>
+                        <input type="email" id="payment-email" placeholder="your@email.com" required>
+
+                        <label for="card-number">Card Information</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+
+                        <div class="card-details">
+                            <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                            <input type="text" id="cvc" placeholder="CVC" required>
+                        </div>
+
+                        <label for="cardholder-name">Cardholder Name</label>
+                        <input type="text" id="cardholder-name" placeholder="John Doe" required>
+
+                        <label for="billing-country">Country or Region</label>
+                        <select id="billing-country" required>
+                            <option value="">Select Country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="IN">India</option>
+                        </select>
+
+                        <button type="submit" class="pay-btn">Complete Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="close-btn" id="close-login">&times;</button>
+            </div>
+            <form id="login-form" class="login-form">
+                <input type="email" id="login-email" placeholder="Your email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" class="login-btn">Login</button>
+                <div class="terms">
+                    <input type="checkbox" id="terms-agree" required>
+                    <label for="terms-agree">By continuing, I agree to the terms of use & privacy policy.</label>
+                </div>
+                <p class="create-account">Create a new account? <a href="#" id="show-register">Click here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Register</h2>
+                <button class="close-btn" id="close-register">&times;</button>
+            </div>
+            <form id="register-form" class="register-form">
+                <div class="form-row">
+                    <input type="text" id="reg-first-name" placeholder="First name" required>
+                    <input type="text" id="reg-last-name" placeholder="Last name" required>
+                </div>
+                <input type="email" id="reg-email" placeholder="Email address" required>
+                <input type="password" id="reg-password" placeholder="Password (min 6 characters)" required>
+                <input type="tel" id="reg-phone" placeholder="Phone number (optional)">
+                <button type="submit" class="register-btn">Create Account</button>
+                <div class="terms">
+                    <input type="checkbox" id="reg-terms-agree" required>
+                    <label for="reg-terms-agree">By continuing, I agree to the terms of use & privacy policy.</label>
+                </div>
+                <p class="login-account">Already have an account? <a href="#" id="show-login">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="contact-name">Name:</label>
+                <input type="text" id="contact-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="contact-email">Email:</label>
+                <input type="email" id="contact-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="contact-message">Message:</label>
+                <textarea id="contact-message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Tomato. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
