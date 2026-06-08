@@ -18,6 +18,10 @@ function baseState() {
 }
 
 function ensureDatabaseFile() {
+	const dir = path.dirname(dbPath);
+	if (!fs.existsSync(dir)) {
+		fs.mkdirSync(dir, { recursive: true });
+	}
 	if (!fs.existsSync(dbPath)) {
 		fs.writeFileSync(dbPath, JSON.stringify(baseState(), null, 2));
 	}
@@ -29,6 +33,7 @@ function readData() {
 }
 
 function writeData(data) {
+	ensureDatabaseFile();
 	fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
 }
 
