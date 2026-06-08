@@ -83,9 +83,12 @@ Do not commit secrets to source control. Copy `.env.example` and replace values 
 
 Tomato runs as a Node.js server and can be deployed to any platform that supports Node (Railway, Render, Fly.io, VPS, etc.).
 
+- **Build command:** `npm install && npm run build`
 - **Start command:** `npm start`
 - **Port:** Set `PORT` via environment variable (platforms like Render/Railway inject this automatically).
 - **Secrets:** Set `JWT_SECRET` in your host's environment settings.
+
+A `render.yaml` blueprint is included for one-click Render deployment.
 
 Tip: Run `curl http://localhost:3000/api/health` after deploy to verify the API is live.
 
