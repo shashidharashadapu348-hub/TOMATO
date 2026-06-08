@@ -1,4 +1,7 @@
 # Tomato — Food Delivery Full Stack App
+
+![Node CI](https://github.com/shashidharashadapu348-hub/TOMATO/actions/workflows/node-ci.yml/badge.svg)
+
 **Node.js + Express**
 
 Tomato is a web-based food delivery application that lets users browse menus, manage a shopping cart, place orders, and contact support. The app provides an interactive storefront with category browsing, featured items, cart checkout, user authentication, and a contact form. It ships as a vanilla HTML/CSS/JavaScript frontend served by a Node.js + Express API with JSON file-backed persistence.
